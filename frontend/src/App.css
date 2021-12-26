@@ -43,6 +43,55 @@ img {
   width: 100%;
 }
 
+/*Weahter City Text*/
+.weahter-text-minmax{
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: bold;
+
+}
+.weahter-text-icon{
+  text-align: center;
+/*   padding-right: 4rem;
+  padding-top: 1rem; */
+  font-family: 'Roboto', sans-serif;
+  font-size: 3rem;
+  line-height: 1.6;
+  font-weight: bold;
+}
+
+.image-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+/*Weahter Icon*/
+.weahter-icon{
+  width: 50%;
+  height: 50%;
+}
+
+/*Weahter List*/
+.weahter-ul{
+  text-align: left;
+  padding-right: 15rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: bold;
+}
+
+/*Weahter*/
+.container-dash{
+  padding: 1vw;
+  /* background-color: yellow; */
+  min-height: 100%;
+  min-width: 100%;
+  
+}
+
 /* Utilities */
 .container {
   max-width: 1200px;

@@ -21,7 +21,7 @@ const DashboardState = props =>{
 
     const loadDash = async () =>{
         try {
-            const res = await axios.get('http://localhost:5000/api/dashboard');
+            const res = await axios.get('/api/dashboard');
             console.log(res.data, ' im your res')
 
             dispatch({
@@ -41,7 +41,7 @@ const DashboardState = props =>{
             }
            };
            try {
-                const res = await axios.post('http://localhost:5000/api/dashboard', data.layout, config);        
+                const res = await axios.post('/api/dashboard', data.layout, config);        
                dispatch({
                    type:SAVE_DASH,
                    payload: res.data
@@ -61,7 +61,7 @@ const DashboardState = props =>{
           console.log(data)
           try {
             const res = await axios.put(
-              `http://localhost:5000/api/dashboard/${id}`,
+              `/api/dashboard/${id}`,
               data,
               config
             );   

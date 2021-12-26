@@ -36,7 +36,7 @@ const AuthState = props =>{
          setAuthToken(localStorage.token);
      }
      try{
-        const res = await axios.get('http://localhost:5000/api/auth');
+        const res = await axios.get('/api/auth');
 
         dispatch({
             type: USER_LOADED, 
@@ -57,7 +57,7 @@ const AuthState = props =>{
        };
 
        try {
-            const res = await axios.post('http://localhost:5000/api/users', data, config);
+            const res = await axios.post('/api/users', data, config);
            
            dispatch({
                type:REGISTER_SUCCESS,
@@ -82,7 +82,7 @@ const AuthState = props =>{
        };
 
        try {
-            const res = await axios.post('http://localhost:5000/api/auth', data, config);
+            const res = await axios.post('/api/auth', data, config);
            
            dispatch({
                type:LOGIN_SUCCESS,

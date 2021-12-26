@@ -4,6 +4,10 @@ const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const auth = require('../middleware/auth');
 const Dashboard = require('../models/Dashboard');
+const axios = require('axios');
+const fetch = require('node-fetch');
+
+const backend = require('../backend/index');
 
 
 // @route       GET api/dashboard
@@ -40,7 +44,7 @@ router.post('/',
        res.json(dashboard)
    } catch (err) {
        console.error(err.message);
-       res.status(500).send('Server Erroooooooorr');      
+       res.status(500).send('Server Error');      
        
    }
 });
@@ -52,9 +56,8 @@ router.post('/',
 // @access      Private
 router.put('/:id',auth, async (req,res) => {
     try {
-
-        newLay = req.body
-        updated = await Dashboard.findByIdAndUpdate(
+        let newLay = req.body
+        let updated = await Dashboard.findByIdAndUpdate(
           req.params.id,
           {$set:{ layout: newLay}},
           {new: true}
@@ -67,11 +70,23 @@ router.put('/:id',auth, async (req,res) => {
       }
 });
 
+router.get('/temp', async (req,res) => {
+  try{
+    const weather = await axios.get('api.openweathermap.org/data/2.5/forecast?units=metric&q=Vienna&APPID=b1f2d01d253273e36e3005b89b2e84db');
+    res.json(weather);
+  } catch(err){
+    console.error(err.msg);
+  }
+});
 
+router.get('/fda'), async (res) => {
+  try{
+   
+  }catch(e){
+    console.error(e)
+  }
 
-
-
-
+}
 
 
 module.exports = router;
