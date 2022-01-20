@@ -25,6 +25,7 @@ import Home from './components/pages/Home';
 import AuthState from './context/auth/AuthState';
 import AlertState from'./context/alert/AlertState';
 import DashboardState from './context/dashboard/DashBoardState';
+import WeatherState from './context/weather/WeatherState';
 
 if(localStorage.token){
   setAuthToken(localStorage.token);
@@ -41,11 +42,12 @@ const App = () =>  {
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <GlobalStyles/>
         <AuthState>
-          <DashboardState>
+
+            <WeatherState>
           <Router>
             <AlertState>
                 <Fragment>
-                <button onClick={themeToggler}>Switch Theme</button>
+                <div className="btn switch-theme btn-dark" onClick={themeToggler}> Switch Theme</div>
                   <BurgerMenu></BurgerMenu>
                   <Header>
          
@@ -62,7 +64,7 @@ const App = () =>  {
                 </Fragment>  
             </AlertState>
           </Router>
-          </DashboardState>
+          </WeatherState>
         </AuthState>
     </ThemeProvider>
 
