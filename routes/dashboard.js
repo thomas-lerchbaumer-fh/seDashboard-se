@@ -70,23 +70,4 @@ router.put('/:id',auth, async (req,res) => {
       }
 });
 
-router.get('/temp', async (req,res) => {
-  try{
-    const weather = await axios.get('api.openweathermap.org/data/2.5/forecast?units=metric&q=Vienna&APPID=b1f2d01d253273e36e3005b89b2e84db');
-    res.json(weather);
-  } catch(err){
-    console.error(err.msg);
-  }
-});
-
-router.get('/fda'), async (res) => {
-  try{
-   
-  }catch(e){
-    console.error(e)
-  }
-
-}
-
-
 module.exports = router;
