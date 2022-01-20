@@ -20,4 +20,13 @@ export const GlobalStyles = createGlobalStyle`
   .react-grid-item{
     background: ${({ theme }) => theme.colorDash}
   }
+  a{
+    color:${({ theme }) => theme.text}
+  }
+  .note-wrapper{
+    border-color: ${({ theme }) => theme.text}
+  }
+  .badge-dark{
+    background: ${({ theme }) => theme.highlightColor}
+  }
   `

@@ -7,7 +7,11 @@ const Dashboard = require('../models/Dashboard');
 const axios = require('axios');
 const fetch = require('node-fetch');
 
-const backend = require('../backend/index');
+var {getTempDataForecast} = require('../backend/index');
+var {getTempCurrentData} = require('../backend/index');
+var {getC19Data} = require('../backend/index');
+var {getStandardFeed} = require('../backend/index');
+var {getArnieQuote} = require('../backend/index');
 
 
 // @route       GET api/dashboard
@@ -69,5 +73,50 @@ router.put('/:id',auth, async (req,res) => {
         res.status(500).send('Server Error');
       }
 });
+
+router.get('/tempForecast', async (req,res) => {
+        await getTempDataForecast()
+        .then(data => {res.json(data)})
+        .catch(function (error) {
+          console.log(error);
+       });
+});
+
+router.get('/tempCurrent', async (req,res) => {
+        await getTempCurrentData()
+        .then(data => {res.json(data)})
+        .catch(function (error) {
+          console.log(error);
+        });
+});
+
+router.get('/coronaData', async (req,res) => {
+        await getC19Data()
+        .then(data => {res.json(data)})
+        .catch(function (error) {
+          console.log(error);
+        });
+});
+
+router.get('/standardFeed', async (req,res) => {
+  await getStandardFeed()
+  .then(data => {res.json(data)})
+  .catch(function (error) {
+    console.log(error);
+  });
+});
+
+router.get('/arnieQuote', async (req,res) => {
+  await getArnieQuote()
+  .then(data => {res.json(data)})
+  .catch(function (error) {
+    console.log(error);
+  });
+});
+
+
+
+
+
 
 module.exports = router;

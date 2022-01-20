@@ -15,16 +15,14 @@ const StandardRss = () => {
         "title": "Kurz und FPÖ gegen Erleichterung bei Staatsbürgerschaft",
         "link": "https://www.derstandard.at/story/2000127347245/kurz-gegen-staatsbuergerschaft-kogler-fuer-erleichterungen?ref=rss",
         "thumbnail": "https://images.derstandard.at/img/2021/06/12/92BD53E4-4241-4A82-A798-A924C764AD99.jpeg?w=150&s=383fdd31",
+      },
+      {
+        "title": "Kurz und FPÖ gegen Erleichterung bei Staatsbürgerschaft",
+        "link": "https://www.derstandard.at/story/2000127347245/kurz-gegen-staatsbuergerschaft-kogler-fuer-erleichterungen?ref=rss",
+        "thumbnail": "https://images.derstandard.at/img/2021/06/12/92BD53E4-4241-4A82-A798-A924C764AD99.jpeg?w=150&s=383fdd31",
       }
      ]
     }
-
-
-    
-
-    console.log(tmpData, 'tmp data')
-
-    
 
 const {items} = tmpData  
 
@@ -34,7 +32,7 @@ console.log(items.title, 'title')
 
  return (
     <Fragment>
-      <div className="container-dash">
+      <div className="container-dash-rss">
         <h2>derStandard Newsroom</h2>
         <div className="image-wrapper">
         <ul className="ul-newsroom-scroolbar">
@@ -44,10 +42,10 @@ console.log(items.title, 'title')
             <a href={`${item.link}`}>{item.title}</a>  
             <img className="li-newsroom-img" src={`${item.thumbnail}`}  alt="derStandard" width="100%" height="100%"/>
             </li>
-            )
-        })}   
-        </ul>         
-        </div>    
+            )            
+        })}
+        </ul>          
+        </div>       
       </div>
     </Fragment>
 

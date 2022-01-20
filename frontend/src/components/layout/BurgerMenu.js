@@ -1,18 +1,26 @@
-import React, {Fragment, useContext} from 'react'
+import React, {Fragment, useContext, useEffect} from 'react'
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom'
 import { slide as Menu } from 'react-burger-menu'
 import AuthContext from '../../context/auth/authContext'
 import {ReactComponent as MainLogo} from "../../res/img/se_logo.svg";
+import NoteContext from '../../context/notes/noteContext';
 
  const BurgerMenu = ({title, icon}) => {
     const authContext = useContext(AuthContext);
 
-    const {isAuthenticated, logout, user} = authContext;
+
+    const {isAuthenticated, logout, user,loadUser} = authContext;
 
     const logOut = () =>{
         logout();
     }
+    useEffect(()=>{
+        loadUser();
+        // eslint-disable-next-line
+    },[])
+
+  
 
     const authLinks = (
         <Fragment>
@@ -27,6 +35,12 @@ import {ReactComponent as MainLogo} from "../../res/img/se_logo.svg";
                 <Link to="/about">
                 <i class="fas fa-users"></i>{' '}
                 About
+                </Link>
+            </li>
+            <li>
+                <Link to="/notes">
+                <i class="far fa-sticky-note"></i>{' '}
+                Notes
                 </Link>
             </li>
             <li>

@@ -16,16 +16,16 @@ app.use(express.json({extended: false,}));
 app.use(require('body-parser').json()); 
 app.use(require('body-parser').urlencoded({ extended: true }));
 
-app.get('/', (req,res) => res.json({msg:"Welcome to our Keeper API"}));
+app.get('/', (req,res) => res.json({msg:"Welcome to our API"}));
 
 //allow OPTIONS on all resources
 
 
 //Define Routes
-
 app.use('/api/users', require('./routes/users'))
 app.use('/api/auth', require('./routes/auth'))
 app.use('/api/dashboard', require('./routes/dashboard'));
+app.use('/api/notes', require('./routes/notes'));
 
 
 const PORT = process.env.PORT || 5000;

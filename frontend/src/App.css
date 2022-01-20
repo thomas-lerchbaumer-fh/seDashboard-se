@@ -6,7 +6,7 @@ NOTE colors need to be changed
 */
 :root {
   --primary-color: #ed800d;
-  --dark-color: #282828;
+  --dark-color: #0a0909;
   --light-color: #f4f4f4;
   --danger-color: #dc3545;
   --success-color: #28a745;
@@ -27,7 +27,7 @@ body {
 }
 
 a {
-  color: var(--primary-color);
+  color: var(--dark-color);
   text-decoration: none;
 }
 
@@ -43,15 +43,46 @@ img {
   width: 100%;
 }
 
+.note-input-wrapper{
+  min-width: 50%;
+}
+
+.test-class{
+  min-width: 50%;
+}
+
+.note-wrapper{
+  display: flex;
+  height: auto;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid var(--dark-color);
+  padding: 1%;
+  margin:1%
+  
+}
+
+
+
+.note-text{
+  max-width: 80%;
+  overflow: hidden;
+}
+.note-remove{
+  float: right;
+}
 .container-aboutus{
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .item-aboutus{
-  flex-grow: 1;
-  height: 100px;
-}
-.item-aboutus{
-  margin-left: 2%;
+  display: flex;
+  align-items: center;
+  height: 80%;
+  height: 12rem;
+  margin-bottom: 10px;
+  width: 40%;
 }
 
 
@@ -77,31 +108,31 @@ img {
 .image-wrapper {
   display: flex;
   align-items: center;
-  height: 80%;
-}
-
-.ul-newsroom-scroolbar{
-  overflow:hidden;
-  overflow-y: scroll;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .li-newsroom-text{
-  padding-top: -5rem;
-  padding-bottom: -5rem;
   text-align: center;
   list-style-type: none;
+  align-items: center;
+  display: flex;
+  margin-bottom: 2%;
+  width: 98%;
 }
 .li-newsroom-img{
   padding-bottom: -5rem;
   padding-top: -5rem;
   display: flex;
   align-content: center;
-  transform: scale(0.7);
+  width: 60%;
+  margin-left:4%;
 }
 /*Weahter Icon*/
 .weahter-icon{
-  width: 50%;
-  height: 50%;
+  width: 35%;
+  height: 35%;
 }
 
 /*Weahter List*/
@@ -120,9 +151,42 @@ img {
   /* background-color: yellow; */
   min-height: 100%;
   min-width: 100%;
-  
 }
 
+.notes-dash{
+  overflow: scroll;
+  height: 80%;
+  padding: 0 2rem 2rem 2rem;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.notes-dash::-webkit-scrollbar {
+  display: none;
+}
+
+.notes-wrapper-dash h2{
+  margin-top: 1rem;
+}
+
+.container-dash-rss{
+  overflow: scroll;
+  max-height: 90%;
+  min-height: 100%;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.container-dash-rss h2{
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.container-dash-rss::-webkit-scrollbar {
+  display: none;
+}
+
+.grid-smaller{
+  padding:1rem;
+}
 /* Utilities */
 .container {
   max-width: 1200px;
@@ -219,6 +283,7 @@ img {
 .react-grid-item {
   background-color: #f4f4f4;
   border-radius: 4px;
+  background: orange;
 }
 
 .react-grid-layout{
