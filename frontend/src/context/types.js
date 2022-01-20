@@ -12,3 +12,5 @@ export const REMOVE_ALERT = 'REMOVE_ALERT';
 export const SAVE_DASH = 'SAVE_DASHBOARD';
 export const UPDATE_DASH = 'UPDATE_DASH';
 export const LOAD_DASH = 'LOAD_DASH';
+export const LOAD_WEATHER = 'LOAD_WEAHTER';
+export const SEARCH_WEATHER = 'SEARCH_WEATHER'
