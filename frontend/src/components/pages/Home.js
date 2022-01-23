@@ -165,7 +165,7 @@ const Home = () => {
             </div>
           </div>
           <div key="gas" className="wrapper-dash">
-            <h2>Günstigste Tankstelle</h2>
+            <h2>Cheapest Gas Station Around</h2>
             <div className="covid-wrapper">
               <Gas></Gas>
             </div>
@@ -232,7 +232,7 @@ const Home = () => {
             </div>
           </div>
           <div key="gas" className="wrapper-dash">
-            <h2>Günstigste Tankstelle</h2>
+            <h2>Cheapest Gas Station Around</h2>
             <div className="covid-wrapper">
               <Gas></Gas>
             </div>
