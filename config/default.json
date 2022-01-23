@@ -1,5 +1,5 @@
 {
-    "mongoURI": "mongodb+srv://thomas-dash:thomas1234@sedashboard.q08ib.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "mongoURI": "mongodb+srv://thomas-dash:thomas1234@sedashboard.q08ib.mongodb.net/seDashboard?retryWrites=true&w=majority",
     "jwtSecret" :"secret"
  
 }
