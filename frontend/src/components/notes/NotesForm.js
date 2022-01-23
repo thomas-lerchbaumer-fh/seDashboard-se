@@ -1,64 +1,62 @@
-import React, {useState, useContext, useEffect, Fragment} from 'react'
+import React, { useState, useContext, useEffect, Fragment } from 'react'
 import NoteContext from '../../context/notes/noteContext';
 
 
 
 
 
- const NotesForm = () => {
+const NotesForm = () => {
     const noteContext = useContext(NoteContext);
 
-    const {addNote, current, clearCurrent, updateNote} = noteContext
+    const { addNote, current, clearCurrent, updateNote } = noteContext
 
-    useEffect(()=>{
-        if(current !== null){
+    useEffect(() => {
+        if (current !== null) {
             setNote(current);
-        }else{
-        setNote({
-            noteText: '',
-        })
-    
-    }
+        } else {
+            setNote({
+                noteText: '',
+            })
 
-    },[noteContext, current])
-    
+        }
+
+    }, [noteContext, current])
+
     const [note, setNote] = useState({
-        noteText :'',
+        noteText: '',
     })
-    const {noteText} = note;
+    const { noteText } = note;
 
 
-    const onChange = e =>{
+    const onChange = e => {
         setNote({ ...note, [e.target.name]: e.target.value });
-   
+
     }
-    
+
     const onSubmit = event => {
         event.preventDefault();
-        if(current === null){
+        if (current === null) {
             addNote(note);
-        }else{
+        } else {
             updateNote(note)
         }
-     
         clearAll()
     }
 
-    const clearAll = ()=>{
+    const clearAll = () => {
         clearCurrent();
-
     }
 
     return (
-       <Fragment>
-    
-       
-        <form onSubmit={onSubmit}>
-                <textarea placeholder="*enter your note here...." type="text" rows="8" cols="50" name="noteText" value={noteText} onChange={onChange} required></textarea>
+        <Fragment>
+
+
+            <form onSubmit={onSubmit}>
+                <textarea placeholder="*enter your note here...." type="text" rows="7" cols="50" name="noteText" value={noteText} onChange={onChange} required></textarea>
                 <div className="btn-note">
-                    <input type="submit" value={current ? 'Update Note' : 'Add Note'} name="note" className="btn btn-note"></input>
+                    <input type="submit" value={current ? 'Update Note' : 'Add Note'} name="note" className="btn btn-note btn-dark"></input>
                 </div>
-        </form>
+            </form>
         </Fragment>
     )
 }

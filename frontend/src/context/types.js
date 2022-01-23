@@ -21,3 +21,5 @@ export const GET_NOTES = 'GET_NOTES';
 export const CLEAR_CURRENT = 'CLEAR_CURRENT';
 export const GET_HOURLY_WEATHER = 'GET_HOURLY_WEATHER';
 export const UPDATE_NOTE = 'UPDATE_NOTE';
+export const GET_NEWS = 'GET_NEWS';
+export const GET_COVID = 'GET_COVID';

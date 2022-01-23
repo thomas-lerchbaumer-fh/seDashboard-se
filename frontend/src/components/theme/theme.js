@@ -11,5 +11,5 @@ export const darkTheme = {
   toggleBorder: '#6B8096',
   background: '#212121',
   colorDash: '#333',
-  highlightColor: '#ed800d'
+  highlightColor: '#ed800d',
 }

@@ -2,11 +2,11 @@ import React from 'react'
 import Notes from '../notes/Notes'
 import NotesForm from '../notes/NotesForm';
 
- const NotesPage = () => {
+const NotesPage = () => {
 
 
-    if(localStorage.token){
-   
+    if (localStorage.token) {
+
     }
     return (
         <div className='grid-2'>
@@ -16,7 +16,7 @@ import NotesForm from '../notes/NotesForm';
             <div className='notes-page-wrapper'>
                 <Notes></Notes>
             </div>
-        
+
         </div>
     )
 }

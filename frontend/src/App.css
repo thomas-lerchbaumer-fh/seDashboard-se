@@ -6,7 +6,7 @@ NOTE colors need to be changed
 */
 :root {
   --primary-color: #ed800d;
-  --dark-color: #0a0909;
+  --dark-color: #333333;
   --light-color: #f4f4f4;
   --danger-color: #dc3545;
   --success-color: #28a745;
@@ -51,6 +51,10 @@ img {
   min-width: 50%;
 }
 
+.notes-page-wrapper{
+  width: 100%;
+}
+
 .note-wrapper{
   display: flex;
   height: auto;
@@ -72,7 +76,7 @@ img {
 .spotify-dash {
   display: flex;
   width: 100%;
-  height: 100%;
+  height: 90%;
   /* align-items: baseline; */
   justify-content: space-around;
 }
@@ -173,6 +177,7 @@ li.item-aboutus-li-italic{
   display: flex;
   margin-bottom: 2%;
   width: 98%;
+  padding:3%;
 }
 .li-newsroom-img{
   padding-bottom: -5rem;
@@ -181,6 +186,7 @@ li.item-aboutus-li-italic{
   align-content: center;
   width: 60%;
   margin-left:4%;
+  max-width: 40%;
 }
 /*weather Icon*/
 .weather-icon{
@@ -200,7 +206,7 @@ li.item-aboutus-li-italic{
 
 /*weather*/
 .container-dash{
-  padding: 1vw;
+
   /* background-color: yellow; */
   min-height: 100%;
   min-width: 100%;
@@ -211,34 +217,53 @@ li.item-aboutus-li-italic{
 
 .notes-dash{
   overflow: scroll;
-  height: 80%;
+  height: 70%;
   padding: 0 2rem 2rem 2rem;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
-}
-.notes-dash::-webkit-scrollbar {
-  display: none;
-}
-
-.notes-wrapper-dash h2{
-  margin-top: 1rem;
+  overflow-x:hidden
+  
 }
 
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(214, 222, 225, 0.705);
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #ffffff;
+  height: 10px;
+}
 .container-dash-rss{
   overflow: scroll;
-  max-height: 90%;
-  min-height: 100%;
+  max-height: 70%;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+  overflow-x:hidden
 }
 .container-dash-rss h2{
   margin-bottom: 1rem;
   margin-top: 1rem;
 }
 
-.container-dash-rss::-webkit-scrollbar {
-  display: none;
+.ul-newsroom-scroolbar{
+  overflow-x: hidden;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  overflow-x:hidden
 }
+
 
 .grid-smaller{
   padding:1rem;
@@ -349,6 +374,11 @@ li.item-aboutus-li-italic{
   background: orange;
 }
 
+.react-grid-item h2{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 .react-grid-layout{
   height: 100%;
 }
@@ -378,11 +408,46 @@ li.item-aboutus-li-italic{
   margin: 3rem 0;
 }
 
+
+.grid-covid{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1%;
+  margin-bottom: 2%;
+}
+.grid-covid i{
+  font-size: 2em;
+}
+
+.covid-wrapper {
+  height: 70%;
+  display: flex;
+  justify-content: space-around;
+  align-content: space-between;
+  flex-direction: column;
+}
+
+.container-covid {
+  display: flex;
+  /* margin-top: 5%; */
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+}
+.break-covid{
+  flex-basis: 100%;
+  height: 1.5vw;
+}
 /* Grid */
 .grid-2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 2rem;
+  margin: 0 auto;
+  
 }
 
 .grid-3 {
@@ -578,6 +643,7 @@ table th {
   bottom: 0;
   right: 0;
   margin: 1%;
+  z-index: 1;
 
 }
 
@@ -720,8 +786,9 @@ Note: Beware of modifying this element as it can break the animations - you shou
   display: flex;
   width: 100%;
   justify-content: center;
-  
+  text-align: center;
 }
+
 
 .notes-dash-form{
   width: 100%;
@@ -744,10 +811,32 @@ Note: Beware of modifying this element as it can break the animations - you shou
 }
 
 
+@media (max-width: 1100px){
+  .container{
+    margin-top: 2%;
+  }
+
+  .navbar svg {
+    width: 20%;
+}
+
+.grid-weather{
+  width: 100%;
+}
+
+.bm-burger-bars {
+  background: #333;
+}
+
+.line-chart-dash{
+  max-width: 60%;
+}
+
+}
 
 
 /* Mobile Styles */
-@media (max-width: 700px) {
+@media (max-width: 770px) {
   .hide-sm {
     display: none;
   }
@@ -755,11 +844,19 @@ Note: Beware of modifying this element as it can break the animations - you shou
     margin-top:10%;
     width: 90%;
   }
+  .container-covid{
+    font-size: 0.9em;
+  }
 
   .navbar svg {
     width: 40%;
     margin-top: 9%;
 }
+
+  .line-chart-dash{
+    width: 100%;
+    max-width: 90%;
+  }
 
   .about-us-person{
     padding: 2%;
@@ -772,9 +869,16 @@ Note: Beware of modifying this element as it can break the animations - you shou
   }
 
   .grid-2,
-  .grid-3,
   .grid-4 {
     grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .grid-3{
+    display: flex;
+    flex-direction: row;
   }
 
   /* Text Styles */

@@ -1,4 +1,4 @@
-import { createGlobalStyle} from "styled-components"
+import { createGlobalStyle } from "styled-components"
 export const GlobalStyles = createGlobalStyle`
   body {
     background: ${({ theme }) => theme.body};
@@ -28,5 +28,19 @@ export const GlobalStyles = createGlobalStyle`
   }
   .badge-dark{
     background: ${({ theme }) => theme.highlightColor}
+  }
+  .grid-covid i{
+    color:  ${({ theme }) => theme.highlightColor}
+  }
+
+  h2{
+    color: white;
+  }
+  .item-aboutus-li-bold{
+    color: ${({ theme }) => theme.highlightColor}
+  }
+  .btn-note{
+    background: ${({ theme }) => theme.highlightColor};
+    text-align: center;
   }
   `

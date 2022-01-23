@@ -1,7 +1,7 @@
 import './App.css';
 import BurgerMenu from './components/layout/BurgerMenu';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import React, {Fragment,useState} from 'react'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import React, { Fragment, useState } from 'react'
 import setAuthToken from './utils/setAuthToken';
 import Header from './components/layout/Header';
 import PrivateRoute from './components/routing/PrivateRoute';
@@ -25,54 +25,59 @@ import NotesPage from './components/pages/NotesPage';
 
 //*import states below*//
 import AuthState from './context/auth/AuthState';
-import AlertState from'./context/alert/AlertState';
+import AlertState from './context/alert/AlertState';
 import WeatherState from './context/weather/WeatherState';
 import NoteState from './context/notes/NoteState';
 import WeatherForecastState from './context/weatherForecast/WeatherForecastState';
+import NewsState from './context/news/NewsState';
+import CovidState from './context/covid/CovidState';
 
-if(localStorage.token){
+if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
 
-const App = () =>  {
+const App = () => {
   const [theme, setTheme] = useState('light');
   const themeToggler = () => {
     theme === 'light' ? setTheme('dark') : setTheme('light')
-}
+  }
 
 
   return (
     <AuthState>
-    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
-      <GlobalStyles/>
-          <NoteState>
+      <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+        <GlobalStyles />
+        <NoteState>
+          <NewsState>
             <WeatherState>
               <WeatherForecastState>
-              <Router>
-                <AlertState>
-                    <Fragment>
-                    <div className="btn switch-theme btn-dark" onClick={themeToggler}> Switch Theme</div>
-                      <BurgerMenu></BurgerMenu>
-                      <Header themeSelected={theme}>
-            
-                      </Header>
+                <CovidState>
+                  <Router>
+                    <AlertState>
+                      <Fragment>
+                        <div className="btn switch-theme btn-dark" onClick={themeToggler}> Switch Theme</div>
+                        <BurgerMenu></BurgerMenu>
+                        <Header themeSelected={theme}>
+                        </Header>
                         <div className="container">
-                        <Alert></Alert>
-                        <Switch>
-                          <Route exact path='/' component={Home}></Route>
-                          <Route exact path='/about' component={About}></Route>
-                          <PrivateRoute exact path='/notes' component={NotesPage}></PrivateRoute>
-                          <Route exact path='/login' component={Login}></Route>
-                          <Route exact path='/register' component={Register}></Route>
-                        </Switch>
-                      </div>
-                    </Fragment>  
-                </AlertState>
-              </Router>
+                          <Alert></Alert>
+                          <Switch>
+                            <Route exact path='/' component={Home}></Route>
+                            <Route exact path='/about' component={About}></Route>
+                            <PrivateRoute exact path='/notes' component={NotesPage}></PrivateRoute>
+                            <Route exact path='/login' component={Login}></Route>
+                            <Route exact path='/register' component={Register}></Route>
+                          </Switch>
+                        </div>
+                      </Fragment>
+                    </AlertState>
+                  </Router>
+                </CovidState>
               </WeatherForecastState>
-              </WeatherState>
-          </NoteState>
-    </ThemeProvider>
+            </WeatherState>
+          </NewsState>
+        </NoteState>
+      </ThemeProvider>
     </AuthState>
 
   );

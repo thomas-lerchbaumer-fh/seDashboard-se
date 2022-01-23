@@ -17,7 +17,7 @@ const Login = (props) =>{
 
     //const dasboardContext = useContext(DashboardContext);
     const authContext = useContext(AuthContext)
-    const {login, error, removeErrors, isAuthenticated } = authContext;
+    const {login, error, clearErrors, isAuthenticated } = authContext;
 
     useEffect(()=>{
         if(isAuthenticated){
@@ -25,9 +25,11 @@ const Login = (props) =>{
             getNotes();
             //dasboardContext.loadDash();
         }
-        if(error ==='Invalid credentials'){
+        console.log(error, ' err')
+        if(error ==='Invalid Credentials'){
+            console.log('in here?')
             setAlert(error, 'danger');
-            removeErrors();
+            clearErrors();
         }
 
         //es-lint-disable-next-line
