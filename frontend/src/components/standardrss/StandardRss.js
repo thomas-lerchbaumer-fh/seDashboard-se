@@ -19,7 +19,6 @@ const StandardRss = () => {
 
   useEffect(() => {
     getNews();
-    console.log(loading, 'loading after get news')
     // eslint-disable-next-line
 
   }, []);

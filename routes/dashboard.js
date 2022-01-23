@@ -11,7 +11,8 @@ var { getTempValuesOneDay,
   getTempForecastHourlyOneDay,
   getStandardRSSFeed,
   getOneArnieQuote,
-  getC19DataAustria
+  getC19DataAustria,
+  getGasStation
 } = require('../backend/dataHandler');
 
 var { getC19Data } = require('../backend/APIHandler');
@@ -96,6 +97,14 @@ router.get('/tempCurrent', async (req, res) => {
       console.log(error);
     });
 });
+
+router.get("/gasStation", async(req,res)=>{
+  await getGasStation()
+  .then(data => { res.json(data) })
+  .catch(function (error){
+    console.error(error)
+  })
+})
 
 router.get('/coronaData', async (req, res) => {
   await getC19DataAustria()

@@ -13,6 +13,7 @@ import BeatLoader from "react-spinners/BeatLoader";
 import { css } from "@emotion/react";
 import Covid from '../covid/Covid';
 import Quotes from '../quotes/Quotes';
+import Gas from '../gas/Gas';
 
 const Home = () => {
   const authContext = useContext(AuthContext);
@@ -26,6 +27,7 @@ const Home = () => {
     { i: 'spotify', x: 3, y: 1, w: 3, h: 2, minW: 3, maxH: 3,minH:2 },
     { i: 'quote', x: 6, y: 2, w: 4, h: 2, minW: 4, maxH: 3,minH:2 },
     { i: 'corona', x: 0, y: 3, w: 10, h: 1.5, minW: 10, maxH: 2, maxW: 10 },
+    { i: 'gas', x: 0, y: 3, w: 10, h: 1.5, minW: 10, maxH: 2, maxW: 10 },
 
   ]
 
@@ -38,6 +40,7 @@ const Home = () => {
     { i: 'spotify', x: 3, y: 2, w: 3, h: 2, minW: 3, maxH: 3,minH:2 },
     { i: 'quote', x: 6, y: 2, w: 4, h: 2, minW: 4, maxH: 3,minH:2 },
     { i: 'corona', x: 0, y: 3, w: 12, h: 2, minW: 12, maxH: 2 },
+    { i: 'gas', x: 0, y: 3, w: 12, h: 2, minW: 12, maxH: 2 },
   ]
 
   const unAuthlayoutMD = [
@@ -47,6 +50,7 @@ const Home = () => {
     { i: 'spotify', x: 2, y: 3, w: 2, h: 2, minW: 1, maxH: 3 },
     { i: 'quote', x: 5, y: 3, w: 2, h: 2, minW: 4, maxH: 3,minH:2 },
     { i: 'corona', x: 0, y: 2, w: 10, h: 2, minW: 10, maxH: 2 },
+    { i: 'gas', x: 0, y: 2, w: 10, h: 2, minW: 10, maxH: 2 },
   ]
 
   const authLayoutMD = [
@@ -58,6 +62,7 @@ const Home = () => {
     { i: 'corona', x: 0, y: 3, w: 10, h: 2, minW: 10, maxH: 2 },
     { i: 'spotify', x: 2, y: 4, w: 2, h: 2, minW: 2, maxH: 3 },
     { i: 'quote', x: 4, y: 4, w: 2, h: 2, minW: 2, maxH: 3 },
+    { i: 'gas', x: 4, y: 4, w: 2, h: 2, minW: 2, maxH: 3 },
   ]
 
   const [authLay, setAuthLay] = useState({
@@ -159,6 +164,12 @@ const Home = () => {
               <Covid></Covid>
             </div>
           </div>
+          <div key="gas" className="wrapper-dash">
+            <h2>Günstigste Tankstelle</h2>
+            <div className="covid-wrapper">
+              <Gas></Gas>
+            </div>
+          </div>
         </ResponsiveReactGridLayout>
 
       )}
@@ -218,6 +229,12 @@ const Home = () => {
             <h2>Covid 19 Data</h2>
             <div className="covid-wrapper">
               <Covid></Covid>
+            </div>
+          </div>
+          <div key="gas" className="wrapper-dash">
+            <h2>Günstigste Tankstelle</h2>
+            <div className="covid-wrapper">
+              <Gas></Gas>
             </div>
           </div>
         </ResponsiveReactGridLayout>

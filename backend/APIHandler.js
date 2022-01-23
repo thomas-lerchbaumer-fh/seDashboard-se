@@ -2,6 +2,7 @@ const axios = require('axios');
 const mongoose = require('mongoose')
 const Quote = require('../models/Quote');
 
+
 var csv = require('csvtojson');
 
 var Schema = mongoose.Schema
@@ -45,6 +46,7 @@ const getC19Data = async () => {
 
 const getStandardFeed = async () => {
     try {
+
         const standardRSSFeed = await axios.get('https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.derstandard.at%2Frss')
         return (standardRSSFeed.data);
     } catch (err) {
@@ -56,11 +58,30 @@ const getArnieQuote = async () => {
     try {
         var randNumb = getRandomInt(100);
         let quote = await Quote.findOne({ _id: randNumb });
-        console.log(quote);
-        return (quote);
+       
+        return quote;
     } catch (err) {
         console.error(err);
     }
+}
+
+const getGasPrice = async (fuelType) => {
+    try{
+        const res = await axios.get('https://api.ipify.org?format=json');
+        const clientIP = res.data.ip;
+
+        const geoLocation = await axios.get("http://ip-api.com/json/" + clientIP)
+        const lat = geoLocation.data.lat;
+        const lon = geoLocation.data.lon;
+  
+        const price = await axios.get("https://api.e-control.at/sprit/1.0/search/gas-stations/by-address?latitude="+lat+"&longitude="+lon+"&fuelType="+fuelType+"&includeClosed=true")
+
+        return price;
+       
+    }catch (err){
+        console.error(err)
+    }
+
 }
 
 function getRandomInt(max) {
@@ -73,6 +94,7 @@ module.exports = {
     getC19Data,
     getStandardFeed,
     getArnieQuote,
+    getGasPrice,
 }
             //*************************************/
             //endpoint getCurrentWeather (OneCall)

@@ -19,7 +19,7 @@ const Quotes = () => {
 
   useEffect(() => {
     getQuotes();
-    console.log(quotes)
+
     // eslint-disable-next-line
 
   }, []);

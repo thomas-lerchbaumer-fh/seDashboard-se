@@ -32,6 +32,7 @@ import WeatherForecastState from './context/weatherForecast/WeatherForecastState
 import NewsState from './context/news/NewsState';
 import CovidState from './context/covid/CovidState';
 import QuotesState from './context/quotes/QuotesState';
+import GasPriceState from './context/gasPrice/GasPriceState';
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -53,6 +54,7 @@ const App = () => {
             <WeatherState>
               <WeatherForecastState>
                 <CovidState>
+                  <GasPriceState>
                   <QuotesState>
                     <Router>
                       <AlertState>
@@ -75,6 +77,7 @@ const App = () => {
                       </AlertState>
                     </Router>
                   </QuotesState>
+                  </GasPriceState>
                 </CovidState>
               </WeatherForecastState>
             </WeatherState>

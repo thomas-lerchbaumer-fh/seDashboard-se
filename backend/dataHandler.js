@@ -1,10 +1,12 @@
 const axios = require('axios');
 
+
 var { getTempDataForecast,
     getTempCurrentData,
     getC19Data,
     getStandardFeed,
-    getArnieQuote
+    getArnieQuote,
+    getGasPrice
 } = require('./APIHandler');
 
 const getTempValuesOneDay = async () => {
@@ -27,6 +29,22 @@ const getTempValuesOneDay = async () => {
     }
 
 };
+
+const getGasStation = async () =>{
+    try{
+        let cheapest = {};
+        const stationsDiesel = await getGasPrice("DIE");
+        const stationBenzin = await getGasPrice("SUP")
+        cheapest = stationsDiesel.data[0];
+        cheapest.prices.push(stationBenzin.data[0].prices)
+        return cheapest;
+
+    }
+    catch(e){
+        console.error(e)
+    }
+
+}
 
 const getTempForecastHourlyOneDay = async () => {
     try {
@@ -80,7 +98,7 @@ const getOneArnieQuote = async () => {
         const greatQuote = await getArnieQuote();
         var quote = greatQuote.quote
         var movie = greatQuote.movie
-
+      
         test = { quote, movie }
         return (test)
     } catch (err) {
@@ -120,5 +138,6 @@ module.exports = {
     getTempForecastHourlyOneDay,
     getStandardRSSFeed,
     getOneArnieQuote,
-    getC19DataAustria
+    getC19DataAustria,
+    getGasStation
 }

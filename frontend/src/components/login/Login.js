@@ -27,7 +27,6 @@ const Login = (props) =>{
         }
         console.log(error, ' err')
         if(error ==='Invalid Credentials'){
-            console.log('in here?')
             setAlert(error, 'danger');
             clearErrors();
         }
