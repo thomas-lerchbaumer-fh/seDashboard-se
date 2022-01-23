@@ -102,9 +102,9 @@ const getC19DataAustria = async () => {
         const dataArrBefore = subString.split(';');
         //hacky dirty quick solution please never ever do this
         test = {
-            confCases: (dataArray[3] + 1 - 1).toLocaleString('de-DE'),
-            deaths: (dataArray[4] + 1 - 1).toLocaleString('de-DE'),
-            recovered: (dataArray[5] + 1 - 1).toLocaleString('de-DE'),
+            confCases: (parseInt(dataArray[3], 0)).toLocaleString('de-DE'),
+            deaths: (parseInt(dataArray[4], 0)).toLocaleString('de-DE'),
+            recovered: (parseInt(dataArray[5], 0)).toLocaleString('de-DE'),
             activeCases: (dataArray[3] - dataArray[5] - dataArray[4]).toLocaleString('de-DE'),
             newCases: (dataArray[3] - dataArrBefore[3]).toLocaleString('de-DE')
         }
