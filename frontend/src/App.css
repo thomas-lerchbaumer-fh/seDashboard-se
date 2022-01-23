@@ -40,7 +40,7 @@ ul {
 }
 
 img {
-  width: 100%;
+  /*  */
 }
 
 .note-input-wrapper{
@@ -58,10 +58,24 @@ img {
   justify-content: space-between;
   border: 1px solid var(--dark-color);
   padding: 1%;
-  margin:1%
-  
+  margin-bottom: 1%;
 }
 
+.spinner-placement{
+  margin: 0 auto;
+}
+
+.line-chart-dash{
+  max-height: 100%;
+  width: 70%;
+}
+.spotify-dash {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  /* align-items: baseline; */
+  justify-content: space-around;
+}
 
 
 .note-text{
@@ -71,23 +85,62 @@ img {
 .note-remove{
   float: right;
 }
-.container-aboutus{
+.container-aboutus {
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* align-content: flex-start; */
+  /* margin: 0 auto; */
 }
-.item-aboutus{
+
+.about-us-person {
   display: flex;
-  align-items: center;
+  /* margin: 3%; */
+  width: 40%;
+  margin-bottom: 4%;
+}
+
+.item-aboutus{
+/*   vertical-align: top;
+    display: inline-block;
+    text-align: center;
+    width: 120px; */
+}
+
+.item-aboutus-img{
+/*   display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: stretch;
+  height: 33vmax;
+  align-content: flex-end;
+  flex-wrap: wrap; */
+}
+
+.item-aboutus-ul{
+/*   display: block;
+  align-items: baseline;
   height: 80%;
   height: 12rem;
   margin-bottom: 10px;
-  width: 40%;
+  width: 40%; */
 }
 
+.item-aboutus-text {
+  display: flex;
+  align-items: center;
+}
 
-/*Weahter City Text*/
-.weahter-text-minmax{
+li.item-aboutus-li-bold{
+  font-weight: bold;
+}
+
+li.item-aboutus-li-italic{
+  font-style: italic;
+}
+
+/*weather City Text*/
+.weather-text-minmax{
   text-align: center;
   font-family: 'Roboto', sans-serif;
   font-size: 1rem;
@@ -95,7 +148,7 @@ img {
   font-weight: bold;
 
 }
-.weahter-text-icon{
+.weather-text-icon{
   text-align: center;
 /*   padding-right: 4rem;
   padding-top: 1rem; */
@@ -129,14 +182,14 @@ img {
   width: 60%;
   margin-left:4%;
 }
-/*Weahter Icon*/
-.weahter-icon{
+/*weather Icon*/
+.weather-icon{
   width: 35%;
   height: 35%;
 }
 
-/*Weahter List*/
-.weahter-ul{
+/*weather List*/
+.weather-ul{
   text-align: left;
   padding-right: 15rem;
   font-family: 'Roboto', sans-serif;
@@ -145,12 +198,15 @@ img {
   font-weight: bold;
 }
 
-/*Weahter*/
+/*weather*/
 .container-dash{
   padding: 1vw;
   /* background-color: yellow; */
   min-height: 100%;
   min-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content:center;
 }
 
 .notes-dash{
@@ -193,6 +249,13 @@ img {
   margin: auto;
   overflow: hidden;
  /*  padding: 4rem 4rem; */
+}
+
+.container-about{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
 
 /* Text Styles*/
@@ -649,11 +712,63 @@ Note: Beware of modifying this element as it can break the animations - you shou
   background: rgba(0, 0, 0, 0.3);
 }
 
+.item-aboutus-ul{
+  margin-left:5%;
+}
+
+.notes-dash-form .btn-note{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  
+}
+
+.notes-dash-form{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.notes-dash-form form{
+  display: flex;
+  width: 90%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.notes-dash-form .btn-note input{
+  margin: 0;
+  text-align: center;
+}
+
+
+
 
 /* Mobile Styles */
 @media (max-width: 700px) {
   .hide-sm {
     display: none;
+  }
+  .container{
+    margin-top:10%;
+    width: 90%;
+  }
+
+  .navbar svg {
+    width: 40%;
+    margin-top: 9%;
+}
+
+  .about-us-person{
+    padding: 2%;
+    flex-direction: column;
+    width: 70%;
+    align-items: center;
+  }
+  .item-aboutus-ul{
+    margin-left:5%;
   }
 
   .grid-2,
