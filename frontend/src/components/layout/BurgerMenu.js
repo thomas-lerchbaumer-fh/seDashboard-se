@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom'
 import { slide as Menu } from 'react-burger-menu'
 import AuthContext from '../../context/auth/authContext'
-import {ReactComponent as MainLogo} from "../../res/img/se_logo.svg";
-import NoteContext from '../../context/notes/noteContext';
+
 
  const BurgerMenu = ({title, icon}) => {
     const authContext = useContext(AuthContext);
@@ -27,19 +26,19 @@ import NoteContext from '../../context/notes/noteContext';
             <li> Hey, {user && user.name} </li>
             <li>
                 <Link to='/'>
-                    <i class="fas fa-home"></i>{' '}
+                    <i className="fas fa-home"></i>{' '}
                     Home
                 </Link>
             </li>
             <li>
                 <Link to="/about">
-                <i class="fas fa-users"></i>{' '}
+                <i className="fas fa-users"></i>{' '}
                 About
                 </Link>
             </li>
             <li>
                 <Link to="/notes">
-                <i class="far fa-sticky-note"></i>{' '}
+                <i className="far fa-sticky-note"></i>{' '}
                 Notes
                 </Link>
             </li>
@@ -56,17 +55,17 @@ import NoteContext from '../../context/notes/noteContext';
         <Fragment>
             <li>
                 <Link to='/'>
-                <i class="fas fa-home"></i>{' '}
+                <i className="fas fa-home"></i>{' '}
                 Home</Link>
             </li>
             <li>
                 <Link to="/about">
-                <i class="fas fa-users"></i>{' '}
+                <i className="fas fa-users"></i>{' '}
                 About</Link>
             </li>
             <li>
                 <Link to="/login">
-                <i class="fas fa-sign-in-alt"></i>{' '}
+                <i className="fas fa-sign-in-alt"></i>{' '}
                 Login</Link>
             </li>
         </Fragment>
@@ -89,7 +88,7 @@ BurgerMenu.propTypes ={
 }
 
 BurgerMenu.defaultProps = {
-    title: 'Contact Keeper',
+    title: 'seDashboard',
     icon: 'fas fa-id-card-alt'
 }
 

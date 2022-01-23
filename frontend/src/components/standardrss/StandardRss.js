@@ -26,10 +26,6 @@ const StandardRss = () => {
 
 const {items} = tmpData  
 
-
-console.log(items.title, 'title')
-//console.log(weather.icon, 'weather')  
-
  return (
     <Fragment>
       <div className="container-dash-rss">

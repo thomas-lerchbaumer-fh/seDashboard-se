@@ -2,17 +2,17 @@ import React, { useContext } from 'react'
 import NoteContext from '../../context/notes/noteContext';
 import PropType from 'prop-types';
 
-//import contactContext from '../../context/contact/contactContext';
 
 
 
-const NoteItem = (propNote) => {
+const NoteItem = ({note}) => {
     const noteContext = useContext(NoteContext)
 
-    const data = propNote.note;
+    const {setCurrent} = noteContext;
+    const {noteText, _id} = note;
 
     const onDelete = () =>{
-        noteContext.deleteNote(data._id);
+        noteContext.deleteNote(_id);
     }
 
 
@@ -20,17 +20,24 @@ const NoteItem = (propNote) => {
         <div className="note-wrapper">
     
                 <div className="note-text">
-                    <p>{data.note}</p>
+                    <p>{noteText}</p>
                 </div>
+               
+                   
                 <div className="note-remove">
-                    <button class="btn badge badge-dark" onClick={onDelete}>x</button>
+                    <button className="btn badge badge-dark" onClick={() => setCurrent(note)}>
+                        <i className="fas fa-pen"></i>
+                    </button>
+                    <button className="btn badge badge-dark" onClick={onDelete}>
+                        <i className="fas fa-times"></i>
+                    </button>
                 </div>
         </div>
     )
 }
 
 NoteItem.propTypes = {
-    //contact: PropType.object.isRequired
+    note: PropType.object.isRequired
     
 }
 

@@ -8,27 +8,39 @@ import NoteContext from '../../context/notes/noteContext';
  const NotesForm = () => {
     const noteContext = useContext(NoteContext);
 
-    const {addNote, current,clearCurrent} = noteContext
+    const {addNote, current, clearCurrent, updateNote} = noteContext
 
     useEffect(()=>{
+        if(current !== null){
+            setNote(current);
+        }else{
         setNote({
-            noteText: ''
+            noteText: '',
         })
+    
+    }
+
     },[noteContext, current])
-
+    
     const [note, setNote] = useState({
-        noteText :''
+        noteText :'',
     })
-
     const {noteText} = note;
+
 
     const onChange = e =>{
         setNote({ ...note, [e.target.name]: e.target.value });
+   
     }
     
     const onSubmit = event => {
         event.preventDefault();
-        addNote(noteText);
+        if(current === null){
+            addNote(note);
+        }else{
+            updateNote(note)
+        }
+     
         clearAll()
     }
 
@@ -38,16 +50,16 @@ import NoteContext from '../../context/notes/noteContext';
     }
 
     return (
-        <div className="m form-group note-input-wrapper">
+       <Fragment>
     
        
         <form onSubmit={onSubmit}>
-                <textarea placeholder="*enter your note here...." rows="8" cols="50" name="noteText" value={noteText} onChange={onChange} required></textarea>
-                <div>
-                    <input type="submit" value="Add Note" name="note" className="btn btn-primary"></input>
+                <textarea placeholder="*enter your note here...." type="text" rows="8" cols="50" name="noteText" value={noteText} onChange={onChange} required></textarea>
+                <div className="btn-note">
+                    <input type="submit" value={current ? 'Update Note' : 'Add Note'} name="note" className="btn btn-note"></input>
                 </div>
         </form>
-        </div>
+        </Fragment>
     )
 }
 

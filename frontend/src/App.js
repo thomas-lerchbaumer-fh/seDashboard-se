@@ -28,6 +28,7 @@ import AuthState from './context/auth/AuthState';
 import AlertState from'./context/alert/AlertState';
 import WeatherState from './context/weather/WeatherState';
 import NoteState from './context/notes/NoteState';
+import WeatherForecastState from './context/weatherForecast/WeatherForecastState';
 
 if(localStorage.token){
   setAuthToken(localStorage.token);
@@ -46,12 +47,13 @@ const App = () =>  {
       <GlobalStyles/>
           <NoteState>
             <WeatherState>
+              <WeatherForecastState>
               <Router>
                 <AlertState>
                     <Fragment>
                     <div className="btn switch-theme btn-dark" onClick={themeToggler}> Switch Theme</div>
                       <BurgerMenu></BurgerMenu>
-                      <Header>
+                      <Header themeSelected={theme}>
             
                       </Header>
                         <div className="container">
@@ -67,6 +69,7 @@ const App = () =>  {
                     </Fragment>  
                 </AlertState>
               </Router>
+              </WeatherForecastState>
               </WeatherState>
           </NoteState>
     </ThemeProvider>
