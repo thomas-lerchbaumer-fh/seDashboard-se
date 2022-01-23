@@ -3,7 +3,7 @@ node_modules/
 frontend/node_modules/
 
 /forntend/build
-
+./package-lock.json
 .DS_Store
 
 /frontend/.env.local
