@@ -118,6 +118,14 @@ img {
   display: flex;
   width: 30%;
   height: 100%;
+  align-items: center;
+}
+
+.text-quotes{
+  height: 100%;
+  width: 70%;
+  min-width: 70%;
+  display: inline-block;
 }
 
 .text-quotes p:first-child {
@@ -127,6 +135,7 @@ img {
 
 .text-quotes p:nth-child(even){
   text-align: right;
+  margin-top:5%;
 }
 
 .item-aboutus{
@@ -398,6 +407,10 @@ li.item-aboutus-li-italic{
   background-color: #f4f4f4;
   border-radius: 4px;
   background: orange;
+}
+
+.react-grid-item img{
+  height: 100%;
 }
 
 .react-grid-item h2{
