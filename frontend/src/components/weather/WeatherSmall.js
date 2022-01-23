@@ -33,13 +33,13 @@ const WeatherSmall = () => {
             (
             <div>
               <h2>Weather Today</h2>
-                <p className="weather-text-minmax">{name}, Min {minTemp}° / Max {maxTemp}°</p> 
+                <p className="weather-text-minmax">{name}Min {minTemp}° / Max {maxTemp}°</p> 
                 <div className="image-wrapper">        
                     <img className="weather-icon" src={`http://openweathermap.org/img/wn/${icon}@2x.png`} align="left" alt={`${name}`} width="100px" height="100px"/>
                     <p className="weather-text-icon">{temp}°</p> 
                 </div>
                     <h4>Details <i className="fas fa-bolt"></i></h4>
-                    <div className="grid-2 grid-smaller">
+                    <div className="grid-2 grid-weather">
                         <ul >
                         <li>Feels Like {feelsLike}°</li>
                         <li>Wind {wind} m/s</li>
