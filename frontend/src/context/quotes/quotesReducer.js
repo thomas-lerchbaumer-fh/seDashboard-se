@@ -1,15 +1,15 @@
 import {
-    GET_NEWS
+    GET_QUOTES
 } from '../types'
 
 export default (state, action) => {
     switch (action.type) {
 
-        case GET_NEWS:
+        case GET_QUOTES:
             return {
                 ...state,
-                news: action.payload,
-                loading: action.payload.length > 0 ? false : true
+                quotes: action.payload,
+                loading: false
             }
         default:
             return state;

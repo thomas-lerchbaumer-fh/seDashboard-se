@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url("https://fonts.googleapis.com/css?family=Tangerine");
 
 /* Global Styles 
 
@@ -102,6 +103,30 @@ img {
   /* margin: 3%; */
   width: 40%;
   margin-bottom: 4%;
+}
+
+.quotes {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+  margin-left: 2%;
+}
+
+.img-quotes {
+  display: flex;
+  width: 30%;
+  height: 100%;
+}
+
+.text-quotes p:first-child {
+  font-family: 'Tangerine', serif;
+  font-size: 2.5em;
+}
+
+.text-quotes p:nth-child(even){
+  text-align: right;
 }
 
 .item-aboutus{
@@ -250,7 +275,8 @@ li.item-aboutus-li-italic{
   max-height: 70%;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
-  overflow-x:hidden
+  overflow-x:hidden;
+  display: flex;
 }
 .container-dash-rss h2{
   margin-bottom: 1rem;

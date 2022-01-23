@@ -26,18 +26,19 @@ import NotesPage from './components/pages/NotesPage';
 //*import states below*//
 import AuthState from './context/auth/AuthState';
 import AlertState from './context/alert/AlertState';
-import WeatherState from './context/weather/WeatherState';
+import WeatherState from './context/weather/weatherState';
 import NoteState from './context/notes/NoteState';
 import WeatherForecastState from './context/weatherForecast/WeatherForecastState';
 import NewsState from './context/news/NewsState';
 import CovidState from './context/covid/CovidState';
+import QuotesState from './context/quotes/QuotesState';
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
 
 const App = () => {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState('dark');
   const themeToggler = () => {
     theme === 'light' ? setTheme('dark') : setTheme('light')
   }
@@ -52,26 +53,28 @@ const App = () => {
             <WeatherState>
               <WeatherForecastState>
                 <CovidState>
-                  <Router>
-                    <AlertState>
-                      <Fragment>
-                        <div className="btn switch-theme btn-dark" onClick={themeToggler}> Switch Theme</div>
-                        <BurgerMenu></BurgerMenu>
-                        <Header themeSelected={theme}>
-                        </Header>
-                        <div className="container">
-                          <Alert></Alert>
-                          <Switch>
-                            <Route exact path='/' component={Home}></Route>
-                            <Route exact path='/about' component={About}></Route>
-                            <PrivateRoute exact path='/notes' component={NotesPage}></PrivateRoute>
-                            <Route exact path='/login' component={Login}></Route>
-                            <Route exact path='/register' component={Register}></Route>
-                          </Switch>
-                        </div>
-                      </Fragment>
-                    </AlertState>
-                  </Router>
+                  <QuotesState>
+                    <Router>
+                      <AlertState>
+                        <Fragment>
+                          <div className="btn switch-theme btn-dark" onClick={themeToggler}> Switch Theme</div>
+                          <BurgerMenu></BurgerMenu>
+                          <Header themeSelected={theme}>
+                          </Header>
+                          <div className="container">
+                            <Alert></Alert>
+                            <Switch>
+                              <Route exact path='/' component={Home}></Route>
+                              <Route exact path='/about' component={About}></Route>
+                              <PrivateRoute exact path='/notes' component={NotesPage}></PrivateRoute>
+                              <Route exact path='/login' component={Login}></Route>
+                              <Route exact path='/register' component={Register}></Route>
+                            </Switch>
+                          </div>
+                        </Fragment>
+                      </AlertState>
+                    </Router>
+                  </QuotesState>
                 </CovidState>
               </WeatherForecastState>
             </WeatherState>

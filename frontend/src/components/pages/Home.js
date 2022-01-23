@@ -12,6 +12,7 @@ import useForceUpdate from 'use-force-update';
 import BeatLoader from "react-spinners/BeatLoader";
 import { css } from "@emotion/react";
 import Covid from '../covid/Covid';
+import Quotes from '../quotes/Quotes';
 
 const Home = () => {
   const authContext = useContext(AuthContext);
@@ -19,41 +20,41 @@ const Home = () => {
 
 
   const unAuthlayout = [
-    { i: 'weatherLarge', x: 0, y: 0, w: 6, h: 2, minW: 6 },
-    { i: 'weatherSmall', x: 8, y: 0, w: 4, h: 2, minW: 4, maxW: 4 },
-    { i: 'standardRss', x: 0, y: 1, w: 3, h: 2, minW: 3, maxW: 4 },
-    { i: 'spotify', x: 3, y: 1, w: 3, h: 2, minW: 3, maxH: 3 },
-    { i: 'quote', x: 6, y: 2, w: 4, h: 2, minW: 4, maxH: 3 },
+    { i: 'weatherLarge', x: 0, y: 0, w: 6, h: 2, minW: 6, minH:2},
+    { i: 'weatherSmall', x: 8, y: 0, w: 4, h: 2, minW: 4, maxW: 4,minH:2 },
+    { i: 'standardRss', x: 0, y: 1, w: 3, h: 2, minW: 3, maxW: 4,minH:2 },
+    { i: 'spotify', x: 3, y: 1, w: 3, h: 2, minW: 3, maxH: 3,minH:2 },
+    { i: 'quote', x: 6, y: 2, w: 4, h: 2, minW: 4, maxH: 3,minH:2 },
     { i: 'corona', x: 0, y: 3, w: 10, h: 1.5, minW: 10, maxH: 2, maxW: 10 },
 
   ]
 
   const authLayout = [
-    { i: 'weatherLarge', x: 0, y: 0, w: 6, h: 2, minW: 6 },
-    { i: 'weatherSmall', x: 8, y: 0, w: 4, h: 2, minW: 4, maxW: 4 },
-    { i: 'notes', x: 0, y: 1, w: 5, h: 2, },
-    { i: 'notes-form', x: 6, y: 1, w: 5, h: 2 },
-    { i: 'standardRss', x: 0, y: 2, w: 3, h: 2, minW: 3 },
-    { i: 'spotify', x: 3, y: 2, w: 3, h: 2, minW: 3, maxH: 3 },
-    { i: 'quote', x: 6, y: 2, w: 4, h: 2, minW: 4, maxH: 3 },
+    { i: 'weatherLarge', x: 0, y: 0, w: 6, h: 2, minW: 6,minH:2 },
+    { i: 'weatherSmall', x: 8, y: 0, w: 4, h: 2, minW: 4, maxW: 4, minH:2},
+    { i: 'notes', x: 0, y: 1, w: 5, h: 2,minH:2 },
+    { i: 'notes-form', x: 6, y: 1, w: 5, h: 2,minH:2 },
+    { i: 'standardRss', x: 0, y: 2, w: 3, h: 2, minW: 3 ,minH:2 },
+    { i: 'spotify', x: 3, y: 2, w: 3, h: 2, minW: 3, maxH: 3,minH:2 },
+    { i: 'quote', x: 6, y: 2, w: 4, h: 2, minW: 4, maxH: 3,minH:2 },
     { i: 'corona', x: 0, y: 3, w: 12, h: 2, minW: 12, maxH: 2 },
   ]
 
   const unAuthlayoutMD = [
-    { i: 'weatherLarge', x: 0, y: 0, w: 10, h: 2, minW: 10 },
-    { i: 'weatherSmall', x: 5, y: 1, w: 3, h: 2, minW: 4, maxW: 4 },
-    { i: 'standardRss', x: 0, y: 1, w: 3, h: 2, minW: 4, maxW: 4 },
+    { i: 'weatherLarge', x: 0, y: 0, w: 10, h: 2, minW: 10,minH:2 },
+    { i: 'weatherSmall', x: 5, y: 1, w: 3, h: 2, minW: 4, maxW: 4,minH:2 },
+    { i: 'standardRss', x: 0, y: 1, w: 3, h: 2, minW: 4, maxW: 4,minH:2 },
     { i: 'spotify', x: 2, y: 3, w: 2, h: 2, minW: 1, maxH: 3 },
-    { i: 'quote', x: 5, y: 3, w: 2, h: 2, minW: 4, maxH: 3 },
+    { i: 'quote', x: 5, y: 3, w: 2, h: 2, minW: 4, maxH: 3,minH:2 },
     { i: 'corona', x: 0, y: 2, w: 10, h: 2, minW: 10, maxH: 2 },
   ]
 
   const authLayoutMD = [
-    { i: 'weatherLarge', x: 0, y: 0, w: 10, h: 2, minW: 10 },
-    { i: 'weatherSmall', x: 5, y: 1, w: 3, h: 2, minW: 4, maxW: 4 },
+    { i: 'weatherLarge', x: 0, y: 0, w: 10, h: 2, minW: 10,minH:2 },
+    { i: 'weatherSmall', x: 5, y: 1, w: 3, h: 2, minW: 4, maxW: 4, minH:2 },
     { i: 'standardRss', x: 0, y: 1, w: 3, h: 2, minW: 4, maxW: 4 },
-    { i: 'notes', x: 0, y: 2, w: 3, h: 2, },
-    { i: 'notes-form', x: 4, y: 2, w: 3, h: 2 },
+    { i: 'notes', x: 0, y: 2, w: 3, h: 2,minH:2 },
+    { i: 'notes-form', x: 4, y: 2, w: 3, h: 2,minH:2 },
     { i: 'corona', x: 0, y: 3, w: 10, h: 2, minW: 10, maxH: 2 },
     { i: 'spotify', x: 2, y: 4, w: 2, h: 2, minW: 2, maxH: 3 },
     { i: 'quote', x: 4, y: 4, w: 2, h: 2, minW: 2, maxH: 3 },
@@ -149,7 +150,7 @@ const Home = () => {
           <div key="quote" className="wrapper-dash">
             <h2>Quote</h2>
             <div className="spotify-dash">
-              hii
+              <Quotes></Quotes>
             </div>
           </div>
           <div key="corona" className="wrapper-dash">
@@ -210,7 +211,7 @@ const Home = () => {
           <div key="quote" className="notes-wrapper-dash">
             <h2>Quote</h2>
             <div className="spotify-dash">
-              hii
+              <Quotes></Quotes>
             </div>
           </div>
           <div key="corona" className="wrapper-dash">

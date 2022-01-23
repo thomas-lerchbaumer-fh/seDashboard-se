@@ -14,6 +14,8 @@ const NewsState = props => {
   };
   const [state, dispatch] = useReducer(NewsReducer, initialState);
 
+
+
   const getNews = async () => {
     try {
       const res = await axios.get('/api/dashboard/standardFeed');
@@ -24,7 +26,7 @@ const NewsState = props => {
       })
 
     } catch (err) {
-      console.error(err.message);
+      console.error(err.message, 'my err?');
       // res.status(500).send('Server Error');
     }
   }
