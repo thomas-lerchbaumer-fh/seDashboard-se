@@ -38,8 +38,8 @@ const GasStation = () => {
             </div>
             <div className="grid-covid">
                 <div><i className="fas fa-dollar-sign"> </i> </div>
-               Diesel {prices[0].amount}€ || 
-               Super {prices[1][0].amount}€
+               Diesel: {prices[0].amount}€ || 
+               Super: {prices[1][0].amount}€
             </div>
             <div className="grid-covid">
                 <div><i className="fas fa-map-pin"> </i> </div>
@@ -48,7 +48,7 @@ const GasStation = () => {
 
             <div className="grid-covid">
                 <div><i className="fas fa-car"> </i> </div>
-                Entfernung: {distance.toFixed(2)} km
+                Distance: {distance.toFixed(2)} km
             </div>
         </Fragment>
         )}
