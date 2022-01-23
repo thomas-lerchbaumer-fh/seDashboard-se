@@ -2,8 +2,7 @@ import React, { useContext, useEffect, Fragment,useReducer } from 'react'
 import axios from 'axios';
 import NoteContext from './noteContext';
 import NoteReducer from './noteReducer';
-import { ADD_NOTE, GET_NOTES, DELETE_NOTE, CLEAR_CURRENT} from '../types'
-
+import { ADD_NOTE, GET_NOTES, DELETE_NOTE, CLEAR_CURRENT, SET_CURRENT, UPDATE_NOTE} from '../types'
 
 const NoteState = props =>{
     const initialState ={
@@ -17,6 +16,7 @@ const NoteState = props =>{
     const getNotes = async () =>{
         try {
             const res = await axios.get('/api/notes');
+
             dispatch({
                 type: GET_NOTES,
                 payload: res.data
@@ -28,17 +28,16 @@ const NoteState = props =>{
     }
 
     //Add Note
-    const addNote = async(data) =>{
+    const addNote = async(note) =>{
         const config = {
             headers: {
                 'Content-Type' :'application/json'
             }
            };
            try {
-            const note={
-                note: data
-            }
+
              const res = await axios.post('api/notes',note, config);
+
              dispatch({
                  type: ADD_NOTE,
                  payload: res.data
@@ -61,10 +60,38 @@ const NoteState = props =>{
            }
     }
 
+    //Set Current note (needed for edit)
+    const setCurrent = (note) => {
+        dispatch({ type: SET_CURRENT, payload: note });
+    };
     const clearCurrent = () =>{
         dispatch({type: CLEAR_CURRENT})
     }
 
+
+    //update note
+    const updateNote = async (note) => {
+        const config = {
+            headers: {
+                'Content-Type' : 'application/json'
+            }
+        };
+        try {
+            const res = await axios.put(
+                `/api/notes/${note._id}`,
+                note,
+                config
+              );
+
+              dispatch({
+                type: UPDATE_NOTE,
+                payload: res.data
+              });
+            
+        } catch (e) {
+            
+        }
+    }
 
     return(
         <NoteContext.Provider value={{
@@ -73,7 +100,9 @@ const NoteState = props =>{
             getNotes,
             addNote,
             deleteNote,
-            clearCurrent
+            clearCurrent,
+            setCurrent,
+            updateNote
            }}>
             {props.children}
 

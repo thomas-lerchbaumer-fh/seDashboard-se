@@ -24,11 +24,11 @@ router.post('/',
  auth,
 
  async (req,res) => {
-   const {note} = req.body;
+   const {noteText} = req.body;
   
    try {
    const newNote = new Note({
-        note,
+        noteText,
         user: req.user.id
        }); 
        const response = await newNote.save();
@@ -56,6 +56,42 @@ router.delete('/:id', auth, async (req, res) => {
     await Note.findByIdAndRemove(req.params.id);
 
     res.json({msg: 'Note removed'});
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
+
+// @route     PUT api/Note/:id
+// @desc      Update Note
+// @access    Private
+router.put('/:id', auth, async (req, res) => {
+  const {noteText} = req.body;
+
+  // Build Note object
+  const noteFields = {};
+  //check if noteText got content and add the new text 
+  if(noteText) noteFields.noteText = noteText;
+
+  try {
+    //search for note
+    let note = await Note.findById(req.params.id);
+
+    if (!note) return res.status(404).json({msg: 'Note not found'});
+
+    // Make sure user owns note
+    if (note.user.toString() !== req.user.id) {
+      return res.status(401).json({msg: 'Not authorized'});
+    }
+
+    note = await Note.findByIdAndUpdate(
+      req.params.id,
+      {$set: noteFields},
+      {new: true},
+    );
+
+    res.json(note);
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error');

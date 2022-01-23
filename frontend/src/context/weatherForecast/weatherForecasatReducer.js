@@ -1,15 +1,17 @@
 import {
+    SEARCH_WEATHER,
     GET_WEATHER,
+    GET_HOURLY_WEATHER
 } from '../types'
 
 
 export default (state, action) =>{
  switch(action.type){
-    
-            case GET_WEATHER:
+
+            case GET_HOURLY_WEATHER:
                 return{
                     ...state,
-                    weather: action.payload,
+                    hourlyForecast: action.payload,
                     loading: false
                 }
             default:

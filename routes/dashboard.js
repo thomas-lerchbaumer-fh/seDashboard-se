@@ -7,11 +7,14 @@ const Dashboard = require('../models/Dashboard');
 const axios = require('axios');
 const fetch = require('node-fetch');
 
-var {getTempDataForecast} = require('../backend/index');
-var {getTempCurrentData} = require('../backend/index');
-var {getC19Data} = require('../backend/index');
-var {getStandardFeed} = require('../backend/index');
-var {getArnieQuote} = require('../backend/index');
+var { getTempValuesOneDay, 
+      getTempForecastHourlyOneDay, 
+      getStandardRSSFeed,
+      getOneArnieQuote,
+      getC19DataAustria
+    } = require('../backend/dataHandler');
+
+    var {getC19Data} = require('../backend/APIHandler');
 
 
 // @route       GET api/dashboard
@@ -75,15 +78,19 @@ router.put('/:id',auth, async (req,res) => {
 });
 
 router.get('/tempForecast', async (req,res) => {
-        await getTempDataForecast()
+        await getTempForecastHourlyOneDay()
         .then(data => {res.json(data)})
         .catch(function (error) {
           console.log(error);
        });
 });
 
+
+// @route       Get api//tempCurrent
+// @desc        Save users Config on registration
+// @access      Public
 router.get('/tempCurrent', async (req,res) => {
-        await getTempCurrentData()
+        await getTempValuesOneDay()
         .then(data => {res.json(data)})
         .catch(function (error) {
           console.log(error);
@@ -91,7 +98,7 @@ router.get('/tempCurrent', async (req,res) => {
 });
 
 router.get('/coronaData', async (req,res) => {
-        await getC19Data()
+        await getC19DataAustria()
         .then(data => {res.json(data)})
         .catch(function (error) {
           console.log(error);
@@ -99,7 +106,7 @@ router.get('/coronaData', async (req,res) => {
 });
 
 router.get('/standardFeed', async (req,res) => {
-  await getStandardFeed()
+  await getStandardRSSFeed()
   .then(data => {res.json(data)})
   .catch(function (error) {
     console.log(error);
@@ -107,7 +114,7 @@ router.get('/standardFeed', async (req,res) => {
 });
 
 router.get('/arnieQuote', async (req,res) => {
-  await getArnieQuote()
+  await getOneArnieQuote()
   .then(data => {res.json(data)})
   .catch(function (error) {
     console.log(error);
